@@ -288,8 +288,7 @@ end
 fprintf('\n=== MATLAB PREPROCESSING COMPLETE ===\n');
 fprintf('Data exported for %d folds to diagnostics/python_data/ directory\n', k_folds);
 fprintf('\nNext steps:\n');
-fprintf('1. Run: python step4_domain_adversarial_training.py\n');
-fprintf('2. Or run ablation study: python ablation_study.py --data_dir diagnostics/python_data --model all\n');
+fprintf('Run: python dann.py\n');
 
 % Save export completion flag
 save('diagnostics/python_data/export_complete.mat', 'k_folds', 'unique_subjects');
