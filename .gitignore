@@ -1,0 +1,83 @@
+# ===========================================
+# EEG Drowsiness Detection - Git Ignore
+# ===========================================
+
+# ----- DATA FILES (too large for GitHub) -----
+# Raw EEG data
+data/
+*.mat
+*.set
+*.fdt
+*.cnt
+*.edf
+*.bdf
+
+# ----- EEGLAB (install separately) -----
+eeglab*/
+
+# ----- GENERATED OUTPUTS -----
+# Preprocessed data exports and visualizations
+outputs/
+
+# Experiments and diagnostics (local only)
+experiments/
+diagnostics/
+
+# Model checkpoints and results
+results_*/
+*.pt
+*.pth
+best_model.pth
+
+# ----- PYTHON -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# ----- JUPYTER -----
+.ipynb_checkpoints/
+*.ipynb
+
+# ----- IDE -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ----- MATLAB -----
+*.asv
+*.m~
+*.autosave
+
+# ----- LOGS -----
+*.log
+logs/
+
+# ----- Claude -----
+CLAUDE.md
+
