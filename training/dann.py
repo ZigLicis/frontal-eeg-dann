@@ -201,10 +201,10 @@ def train_domain_adversarial_model(train_loader, val_loader, model, device):
         
         progress = epoch / num_epochs
         
-        # Conservative lambda schedule
+        # Lambda schedule
         lambda_ = cfg['lambda_max'] * (2.0 / (1.0 + np.exp(-cfg['lambda_speed'] * progress)) - 1.0)
         
-        # Conservative domain weight schedule
+        # Domain weight schedule
         ramp = min(1.0, progress / cfg['domain_ramp_frac'])
         domain_weight = cfg['domain_weight_min'] + (cfg['domain_weight_max'] - cfg['domain_weight_min']) * ramp
         
@@ -304,7 +304,6 @@ def main(data_dir='outputs'):
     print("Domain Adversarial Training for EEG Drowsiness Detection")
     print("=" * 70)
     print(f"Data directory: {data_dir}")
-    print(f"Configuration: Conservative (matching tune_dann.py)")
     print("=" * 70)
     
     # Check if data exists
