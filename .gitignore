@@ -78,6 +78,3 @@ env/
 *.log
 logs/
 
-# ----- Claude -----
-CLAUDE.md
-
