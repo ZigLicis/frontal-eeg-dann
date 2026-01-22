@@ -147,7 +147,7 @@ class EEGDataset(Dataset):
         return self.X[idx], self.y_drowsiness[idx], self.y_subject[idx]
 
 # ============================================================================
-# Training Configuration (Conservative - matches tune_dann.py)
+# Training Configuration
 # ============================================================================
 
 CONFIG = {
