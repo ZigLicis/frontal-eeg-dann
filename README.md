@@ -173,6 +173,43 @@ Visualization outputs (saved to working directory):
 - `eeg_spectral_comparison.png/svg` - Alert vs drowsy frequency heatmaps and channel spectra
 - `eeg_comparison_fold_X.png/svg` - Per-fold EEG comparison plots
 
+## Results
+
+### LOSO Cross-Validation Performance
+
+| Model | Accuracy (%) | F1-Score (%) | Recall (%) | Specificity (%) |
+|-------|--------------|--------------|------------|-----------------|
+| SVM | 69.09 ± 17.81 | 68.95 ± 17.12 | 68.64 ± 17.15 | 69.55 ± 17.39 |
+| CNN | 76.53 ± 20.95 | 77.62 ± 21.55 | 82.09 ± 23.24 | 70.96 ± 30.03 |
+| CNN-LSTM | 74.90 ± 19.96 | 77.43 ± 18.30 | 81.79 ± 16.88 | 68.01 ± 31.93 |
+| **DANN (Ours)** | **79.58 ± 15.87** | **82.24 ± 12.98** | **85.46 ± 17.83** | 70.70 ± 37.23 |
+
+### Comparison with Published Methods
+
+| Study | Subjects | Channels | Model | Accuracy (%) |
+|-------|----------|----------|-------|--------------|
+| Cui et al. (2021) | 11 | 1 | CNN-LSTM | 72.97 |
+| Cui et al. (2022) | 11 | 1 | Compact CNN | 73.22 |
+| Feng et al. (2025) | 11 | 1 | ID3RSNet | 74.72 |
+| Chaabene et al. (2021) | N/A | 7 | CNN | 72.41 |
+| Zeng et al. (2021) | 13 | 64 | DANN | 81.82 |
+| **This Work** | **12** | **7** | **DANN** | **79.58** |
+
+### Key Findings
+
+- **Highest recall (85.46%)** across all models — critical for safety applications where missing a drowsy driver is more costly than false alarms
+- **Competitive accuracy with 89% fewer electrodes** than comparable DANN studies (7 vs 64 channels)
+- **No subject-specific calibration required** — model generalizes to unseen users
+- **Performance variance explained by physiology**: Spectral separability analysis (Cohen's d) revealed that subjects with canonical theta/alpha drowsiness patterns achieved >90% accuracy, while those with atypical neural signatures fell below 70%
+
+### Spectral Separability by Performance Group
+
+| Band | High Performers (≥90%) | Low Performers (<70%) |
+|------|------------------------|----------------------|
+| Theta (4-8 Hz) | 2.19 ± 2.05 | 0.51 ± 1.78 |
+| Alpha (8-13 Hz) | 2.83 ± 2.56 | 0.18 ± 1.07 |
+| Beta (13-30 Hz) | 6.42 ± 5.66 | 0.21 ± 1.41 |
+
 
 ## License
 
